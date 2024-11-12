@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Ejemplo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./index.css" />
+    <style>
+        html{
+            background-color: #212529;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .footer-icons a {
+            margin: 0 10px;
+            font-size: 24px;
+            color: #000;
+        }
+        .card {
+            width: 180px;
+            margin: 0 auto; 
+            cursor: pointer;
+            transition: background-color 0.3s ease; 
+        }
+        .card:hover {
+            background-color: #f0f0f0;
+        }
+        .card-img-top {
+            width: 100%; 
+            height: 150px; 
+            object-fit: cover;
+        }
+        .card-body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+          <div>
+            <a href="index.html">
+              <img
+                src="https://seeklogo.com/images/L/league-of-legends-logo-13AAC5B212-seeklogo.com.png"
+                alt="Logo"
+                width="50"
+              />
+            </a>
+          </div>
+          <div class="d-flex justify-content-center w-100">
+
+            <a href="index.html">
+              <button class="btn btn-light mx-2">Personajes</button>
+            </a>
+
+            <a href="carriles.html">
+              <button class="btn btn-light mx-2">Carriles</button>
+            </a>
+          </div>
+        </div>
+      </header>
+    <div class="container my-5">
+        <div class="row" id="content">
+
+        </div>
+    </div>
+    <footer class="bg-dark text-white text-center p-3">
+        <div class="footer-icons">
+            <a href="https://facebook.com" target="_blank" style="color: #f0f0f0;"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank" style="color: #f0f0f0;"><i class="bi bi-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" style="color: #f0f0f0;"><i class="bi bi-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const data = [
+            { "image": "https://i.pinimg.com/736x/e6/e6/38/e6e638eeb91ff0ed36b61b911056a623.jpg", "name": "Caitlyn", "url": "Campeones/paginaCaitlyn.html" },
+            { "image": "https://steamuserimages-a.akamaihd.net/ugc/912414300739657830/861F3507684D74A367A52DF6C99A5E7576EA86A4/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false", "name": "Kai'sa", "url": "Campeones/paginaKaisa.html" },
+            { "image": "https://preview.redd.it/9scmsvj53jg61.png?width=1000&format=png&auto=webp&s=35106c95651719b97948504b3b66c6c5c577b5a7", "name": "Lux", "url": "Campeones/paginaLux.html" },
+            { "image": "https://img.redbull.com/images/c_crop,x_186,y_0,h_717,w_574/c_fill,w_450,h_600/q_auto:low,f_auto/redbullcom/2018/10/10/82bdaa84-ea04-42ba-be3a-a207002ddcd8/lol-ezreal-rework-pulsefire-skin", "name": "Ezreal", "url": "Campeones/paginaEzreal.html" },
+            { "image": "https://dibujando.net/files/fs/p/i/2017/175/Gif_Fortune_321584.PNG", "name": "Miss Fortune", "url": "Campeones/paginaMissFortune.html" },
+            { "image": "https://steamuserimages-a.akamaihd.net/ugc/2298590115986993047/5F83567DD7F3F61DF2F6051D794855DD5C7835A4/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true", "name": "Jhin", "url": "Campeones/paginaJhin.html" },
+            { "image": "https://i.pinimg.com/564x/da/63/bd/da63bd456786178fbb16dbcfa1baee58.jpg", "name": "Yasuo", "url": "Campeones/paginaYasuo.html" },
+            { "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpQ8eoOZlhfogijmoCTLfVNpnUyEKmhzjYKErdtjReosn3sCXtAInLVngN8t3aGyDbNlNZ0_WtxJ-6FDLr5Y-h4iHACqCj9u3Ad9ILScGeRnWrpiAHajwLX4tekOpJuogxdy_NIahxVSmE/s1600/Tristana_1.jpg", "name": "Tristana", "url": "Campeones/paginaTristana.html" },
+            { "image": "https://pbs.twimg.com/media/E3YZ5k-WYAYrV5o.jpg:large", "name": "Zed", "url": "Campeones/paginaZed.html" },
+        ];
+
+        const contentDiv = document.getElementById('content');
+        data.forEach(item => {
+            const div = document.createElement('div');
+            div.classList.add('col-md-4', 'mb-2');
+            div.innerHTML = `
+                <div class="card" onclick="window.location.href='${item.url}'">
+                    <img src="${item.image}" class="card-img-top" alt="${item.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.name}</h5>
+                    </div>
+                </div>
+            `;
+            contentDiv.appendChild(div);
+        });
+    </script>
+</body>
+</html>

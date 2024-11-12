@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Ejemplo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="carriles.css" />
+</head>
+<body>
+    <header class="bg-dark text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+          <div>
+            <a href="index.html">
+              <img
+                src="https://seeklogo.com/images/L/league-of-legends-logo-13AAC5B212-seeklogo.com.png"
+                alt="Logo"
+                width="50"
+              />
+            </a>
+          </div>
+          <div class="d-flex justify-content-center w-100">
+            <a href="index.html">
+              <button class="btn btn-light mx-2">Personajes</button>
+            </a>
+            <a href="carriles.html">
+              <button class="btn btn-light mx-2">Carriles</button>
+            </a>
+          </div>
+        </div>
+      </header>
+    <div class="content-wrapper text-center my-4">
+        <div class="row justify-content-center" id="content">
+            <div class="col-3 d-flex justify-content-center">
+                <img src="./Images/Top.png" alt="Botón 1" class="img-fluid button-image" onclick="loadContent('./Lineas/Top.html')">
+            </div>
+            <div class="col-3 d-flex justify-content-center">
+                <img src="./Images/Jungle.png" alt="Botón 2" class="img-fluid button-image" onclick="loadContent('./Lineas/Jungle.html')">
+            </div>
+            <div class="col-3 d-flex justify-content-center">
+                <img src="./Images/Mid.png" alt="Botón 3" class="img-fluid button-image" onclick="loadContent('./Lineas/Mid.html')">
+            </div>
+            <div class="col-3 d-flex justify-content-center">
+                <img src="./Images/Bot.png" alt="Botón 4" class="img-fluid button-image" onclick="loadContent('./Lineas/Bot.html')">
+            </div>
+        </div>
+    </div>
+<div class="text-center">
+    <p class="text-center p-0">Presiona un boton</p>
+</div>
+    <div id="dynamic-content" class="container"></div>
+
+    <script>
+        function loadContent(page) {
+            fetch(page)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar el contenido');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('dynamic-content').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('dynamic-content').innerHTML = '<p>No se pudo cargar el contenido.</p>';
+                });
+        }
+    </script>
+    <footer class="bg-dark text-white text-center p-3">
+        <div class="footer-icons">
+          <a href="https://www.facebook.com/leagueoflegends/" target="_blank" style="color: #f0f0f0"
+            ><i class="bi bi-facebook"></i
+          ></a>
+          <a href="https://x.com/lollatam?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor&mx=2" target="_blank" style="color: #f0f0f0"
+            ><i class="bi bi-twitter"></i
+          ></a>
+          <a href="https://www.youtube.com/channel/UCmvoPMHe9l0ytr9ONu5-1vw" target="_blank" style="color: #f0f0f0"
+            ><i class="bi bi-youtube"></i
+          ></a>
+        </div>
+      </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
